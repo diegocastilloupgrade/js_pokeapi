@@ -65,3 +65,7 @@ const getPokemonsBuena = async () => {
   }
 };
 getPokemonsBuena();
+
+const buscarPokemon = async () => {
+
+}

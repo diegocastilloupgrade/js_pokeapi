@@ -2,6 +2,10 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
+nav{ @include flexCenter(row, space-between, center);
+    img{width: 200px;}
+    padding: 1rem
+}
 .pokemon {
   @include flexCenter(row, space-between, center);
   gap: 2rem;

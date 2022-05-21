@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
-      <div class="pokemon"></div>
+    <nav>
+      <a href=""><img src="assets/img/pokemon_logo.svg" alt="" /></a>
+      <form onsubmit="buscarPokemon()">
+          <label for="name">Nombre</label>
+          <input type="text" name="city" id="nombresito" oninput="leerInput()"/>
+          <button>Buscar Pokemon</button>
+      </form>
+    </nav>
+    <div class="pokemon"></div>
   </body>
 </html>
