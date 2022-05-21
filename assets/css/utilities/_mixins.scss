@@ -1,0 +1,14 @@
+@mixin flexCenter($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin grid($grid-type, $no-of-cols, $row-gap, $columnn-gap: $row-gap) {
+    @supports (display: grid) {
+      display: grid;
+      #{$grid-type}: repeat($no-of-cols, auto);
+      grid-gap: rem($row-gap) rem($column-gap);
+    }
+  }
