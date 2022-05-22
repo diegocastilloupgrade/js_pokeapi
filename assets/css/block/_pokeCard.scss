@@ -21,10 +21,13 @@ nav{ @include flexCenter(row, space-between, center);
     .pokemonContainer {
       border: solid 1px orange;
       border-radius: 4px;
+      padding-bottom:4rem;
       background-image: url(../../assets/img/img-noise-361x370.png);
 
       .pokemonImage {
         @include flexCenter(column, center, center);
+        background-image: url(../../assets/img/imagen_nubes.jpeg);
+        background-size: cover;      
         width: 90%;
         margin: 0 auto;
         max-height: 300px;

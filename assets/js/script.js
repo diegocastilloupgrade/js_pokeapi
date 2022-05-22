@@ -2,10 +2,11 @@
 const pokeAPIURL = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
 //const pokeAPIFake = 'https://pokeapi.co/api/v2/pokemon/';
 
+const cardGallery$$ = document.querySelector('.pokemon');
+
 const getPokemonsBuena = async () => {
-  const cardGallery$$ = document.querySelector('.pokemon');
-  //Nos traemos los datos
   let bichoData = await fetch(pokeAPIURL);
+  //Nos traemos los datos
   let bichoDataJSON = await bichoData.json();
   const characters = bichoDataJSON.results;
 
@@ -65,7 +66,3 @@ const getPokemonsBuena = async () => {
   }
 };
 getPokemonsBuena();
-
-const buscarPokemon = async () => {
-
-}
