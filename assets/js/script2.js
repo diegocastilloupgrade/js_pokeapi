@@ -9,9 +9,46 @@ const getPokemonList = async (pokeLookingFor) => {
   let bichoDataJSON = await bichoData.json();
   let characters = bichoDataJSON.results;
   //comprobamos si el input tiene valor introducido por el user
-  
+
+  const layoutBuild = async (param) => {
+    //Construimos el Layout
+    const cardDiv$$ = document.createElement('div');
+    cardDiv$$.classList.add(['pokemonData']);
+    const pokemonContainerDiv$$ = document.createElement('div');
+    pokemonContainerDiv$$.classList.add(['pokemonContainer']);
+    const pokemonDataBar$$ = document.createElement('div');
+    pokemonDataBar$$.classList.add('pokemonDataBar');
+    myPokemonData$$.appendChild(cardDiv$$);
+    cardDiv$$.appendChild(pokemonContainerDiv$$);
+    //Creamos e insertamos el Nombre del pokemon
+    const pokeName$$ = document.createElement('h2');
+    pokeName$$.innerText = param.name;
+    pokemonContainerDiv$$.appendChild(pokeName$$);
+
+    //Creamos e insertamos la Imagen
+    const imgDiv$$ = document.createElement('div');
+    imgDiv$$.classList.add(['pokemonImage']);
+    const pokeImage$$ = document.createElement('img');
+    pokeImage$$.setAttribute('src', param.sprites.other.home.front_default);
+    imgDiv$$.appendChild(pokeImage$$);
+    //DataBar
+    const pokemonId$$ = document.createElement('span');
+    pokemonId$$.classList.add(['pokemonId']);
+    const pokemonWeight$$ = document.createElement('span');
+    const pokemonHeight$$ = document.createElement('span');
+    pokemonId$$.innerText = 'Nº ' + param.id;
+    pokemonHeight$$.innerText = 'Altura ' + param.height / 10 + ' m';
+    pokemonWeight$$.innerText = 'Peso ' + param.weight / 10 + ' kg';
+
+    //Insertamos el codigo html
+    pokemonContainerDiv$$.appendChild(imgDiv$$);
+    pokemonContainerDiv$$.appendChild(pokemonDataBar$$);
+    pokemonDataBar$$.appendChild(pokemonId$$);
+    pokemonDataBar$$.appendChild(pokemonHeight$$);
+    pokemonDataBar$$.appendChild(pokemonWeight$$);
+  };
+
   if (!miInput$$.value) {
-    console.log('characters son ', characters);
     //recorremos los bichos para traernos sus features
     for (let i = 0; i < pokeAPIURL.length; i++) {
       let pokeCurrentData = characters[i].url;
@@ -19,57 +56,10 @@ const getPokemonList = async (pokeLookingFor) => {
       let bichoFeaturesJSON = await bichoFeatures.json();
       const charactersFeatures = bichoFeaturesJSON;
 
-      //Construimos el Layout
-      const cardDiv$$ = document.createElement('div');
-      cardDiv$$.classList.add(['pokemonData']);
-      const pokemonContainerDiv$$ = document.createElement('div');
-      pokemonContainerDiv$$.classList.add(['pokemonContainer']);
-      const pokemonDataBar$$ = document.createElement('div');
-      pokemonDataBar$$.classList.add('pokemonDataBar');
-      myPokemonData$$.appendChild(cardDiv$$);
-      cardDiv$$.appendChild(pokemonContainerDiv$$);
-
-      //Creamos e insertamos el Nombre del pokemon
-      const pokeName$$ = document.createElement('h2');
-      pokeName$$.innerText = charactersFeatures.name;
-      pokemonContainerDiv$$.appendChild(pokeName$$);
-
-      //Creamos e insertamos la Imagen
-      const imgDiv$$ = document.createElement('div');
-      imgDiv$$.classList.add(['pokemonImage']);
-      const pokeImage$$ = document.createElement('img');
-      pokeImage$$.setAttribute(
-        'src',
-        charactersFeatures.sprites.other.home.front_default
-      );
-      imgDiv$$.appendChild(pokeImage$$);
-
-      //DataBar
-      const pokemonId$$ = document.createElement('span');
-      pokemonId$$.classList.add(['pokemonId']);
-      const pokemonWeight$$ = document.createElement('span');
-      const pokemonHeight$$ = document.createElement('span');
-      pokemonId$$.innerText = 'Nº ' + charactersFeatures.id;
-      pokemonHeight$$.innerText =
-        'Altura ' + charactersFeatures.height / 10 + ' m';
-      pokemonWeight$$.innerText =
-        'Peso' + charactersFeatures.weight / 10 + ' kg';
-
-      //URL
-      const pokeURL$$ = document.createElement('p');
-      pokeURL$$.innerText = characters[i].url;
-
-      //Insertamos el codigo html
-      pokemonContainerDiv$$.appendChild(imgDiv$$);
-      pokemonContainerDiv$$.appendChild(pokemonDataBar$$);
-      pokemonDataBar$$.appendChild(pokemonId$$);
-      pokemonDataBar$$.appendChild(pokemonHeight$$);
-      pokemonDataBar$$.appendChild(pokemonWeight$$);
-      //pokemonContainerDiv$$.appendChild(pokeURL$$);
+      layoutBuild(charactersFeatures);
     }
   } else {
-    myPokemonData$$.innerText = ``;
-
+    myPokemonData$$.innerHTML = ``;
     for (const poke of characters) {
       if (
         poke.name
@@ -77,74 +67,29 @@ const getPokemonList = async (pokeLookingFor) => {
           .trim()
           .includes(miInput$$.value.toLowerCase().trim())
       ) {
-        console.log('Encontrada coincidencia en ', poke);
         let pokeCurrentData = poke.url;
         let bichoFeatures = await fetch(pokeCurrentData);
         let bichoFeaturesJSON = await bichoFeatures.json();
         const charactersFeatures = bichoFeaturesJSON;
-        const cardDiv$$ = document.createElement('div');
-        cardDiv$$.classList.add(['pokemonData']);
-        const pokemonContainerDiv$$ = document.createElement('div');
-        pokemonContainerDiv$$.classList.add(['pokemonContainer']);
-        const pokemonDataBar$$ = document.createElement('div');
-        pokemonDataBar$$.classList.add('pokemonDataBar');
-        myPokemonData$$.appendChild(cardDiv$$);
-        cardDiv$$.appendChild(pokemonContainerDiv$$);
-
-        //Creamos e insertamos el Nombre del pokemon
-        const pokeName$$ = document.createElement('h2');
-        pokeName$$.innerText = charactersFeatures.name;
-        pokemonContainerDiv$$.appendChild(pokeName$$);
-
-        //Creamos e insertamos la Imagen
-        const imgDiv$$ = document.createElement('div');
-        imgDiv$$.classList.add(['pokemonImage']);
-        const pokeImage$$ = document.createElement('img');
-        pokeImage$$.setAttribute(
-          'src',
-          charactersFeatures.sprites.other.home.front_default
-        );
-        imgDiv$$.appendChild(pokeImage$$);
-
-        //DataBar
-        const pokemonId$$ = document.createElement('span');
-        pokemonId$$.classList.add(['pokemonId']);
-        const pokemonWeight$$ = document.createElement('span');
-        const pokemonHeight$$ = document.createElement('span');
-        pokemonId$$.innerText = 'Nº ' + charactersFeatures.id;
-        pokemonHeight$$.innerText =
-          'Altura ' + charactersFeatures.height / 10 + ' m';
-        pokemonWeight$$.innerText =
-          'Peso' + charactersFeatures.weight / 10 + ' kg';
-
-        //URL
-        const pokeURL$$ = document.createElement('p');
-        pokeURL$$.innerText = poke.url;
-
-        //Insertamos el codigo html
-        pokemonContainerDiv$$.appendChild(imgDiv$$);
-        pokemonContainerDiv$$.appendChild(pokemonDataBar$$);
-        pokemonDataBar$$.appendChild(pokemonId$$);
-        pokemonDataBar$$.appendChild(pokemonHeight$$);
-        pokemonDataBar$$.appendChild(pokemonWeight$$);
+        layoutBuild(charactersFeatures);
       }
     }
   }
-
-  // for (let z = 0; z < characters.length; z++) {
-  //   if (pokeLookingFor.includes(characters[z].results.name)) {
-  //     console.log('el pokemon buscado es ' + pokeLookingFor);
-  //   } else {
-  //     break;
-  //   }
-  // }
-  // Recorremos los pokemon
 };
 getPokemonList();
 
-// const guardarBusqueda = async () => {
-//   let queBusco = myInput$$.value;
-//   console.log(queBusco);
-// }
+const tutoFeature = () => {
+  const backTuto$$ = document.createElement('div');
+  backTuto$$.classList.add(['backTuto']);
+  const messageTuto$$ = document.createElement('div');
+  messageTuto$$.classList.add(['messagetutoclass']);
+
+  //messageTuto$$.classList.add(['messageTuto']);
+  messageTuto$$.innerHTML = `<h2>Mensaje de ayuda</h2><p>Este es el contenido del mensaje de ayuda</p><a class="closeButton">Cerrar mensaje</a>`
+  document.body.appendChild(backTuto$$);
+  document.body.appendChild(messageTuto$$);
+}
+
+//tutoFeature();
 
 miInput$$.addEventListener('input', getPokemonList);

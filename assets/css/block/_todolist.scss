@@ -1,0 +1,40 @@
+h1{text-align: center;
+margin-bottom: 3rem;;}
+.todoListForm {
+  width: 40%;
+  margin: 0 auto;
+  border: solid 1px cadetblue;
+  border-bottom: none;
+  padding: 3rem 3rem 0 3rem;
+
+  .inputTareas {
+    padding: 0.5rem;
+    min-width: 60%;
+  }
+  .btnAddTask {
+    padding: 0.5rem;
+  }
+}
+.taskList {
+  width: 40%;
+  margin: 0 auto;
+  border: solid 1px cadetblue;
+  border-top: none;
+  padding: 3rem;
+  .emptyTaskList {
+    list-style: none;
+  }
+
+  .taskItem {
+    border-bottom: 1px solid #B0C6CF;
+    list-style: none;
+    padding: 1rem;
+    @include flexCenter(row, space-between, center);
+    a {
+      text-decoration: underline;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

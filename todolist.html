@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokemon</title>
-    <script src="assets/js/script2.js" defer></script>
+    <title>Pokemon - Todolist</title>
     <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="assets/js/todolist.js" defer></script>
   </head>
   <body>
     <nav>
       <a href=""><img src="assets/img/pokemon_logo.svg" alt="" /></a>
       <form onsubmit="buscarPokemon()">
-          <label for="name">Nombre</label>
-          <input type="text" name="city" class="miInput" id="nombresito"/>
-          <a href="todolist.html">Todolist</a>
+        <label for="name">Nombre</label>
+        <input type="text" name="city" class="miInput" />
+        <a href="Index.html">Poke list</a>
       </form>
     </nav>
-    <div class="pokemon"></div>
+    <h1>To do list</h1>
+    <form class="todoListForm">
+      <input class="inputTareas" type="text" />
+      <button class="btnAddTask" type="button">Añadir tarea</button>
+    </form>
   </body>
 </html>
