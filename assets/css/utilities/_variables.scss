@@ -1,12 +1,12 @@
 // Colores
-$bckYellow:yellow;
+$bckYellow: yellow;
 
-$primaryBlue:#36c5f0;
-$darkblue:#1264a3;
-$beige:#f6efe8;
-$white:#fff; 
-$headerBackground:#ecdeec;
-$softgray:#454245;
+$primaryBlue: #36c5f0;
+$darkblue: #1264a3;
+$beige: #f6efe8;
+$white: #fff;
+$headerBackground: #ecdeec;
+$softgray: #454245;
 /* Sizing */
 
 //typography
@@ -14,3 +14,16 @@ $softgray:#454245;
 $h1: 2.5rem;
 $h2: 2rem;
 $subtitle: 1.5rem;
+
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url('../../assets/fonts/PokemonSolid.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: 'Pokemon Hollow';
+  src: url('../../assets/fonts/PokemonHollow.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+}

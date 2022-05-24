@@ -10,13 +10,17 @@
   </head>
   <body>
     <nav>
-      <a href=""><img src="assets/img/pokemon_logo.svg" alt="" /></a>
-      <form onsubmit="buscarPokemon()">
+      <a href="index.html"><img src="assets/img/pokemon_logo.svg" alt="" /></a>
+      <div class="mainMenu">
+        <form onsubmit="buscarPokemon()">
           <label for="name">Nombre</label>
-          <input type="text" name="city" class="miInput" id="nombresito"/>
-          <a href="todolist.html">Todolist</a>
-      </form>
+          <input type="text" name="city" class="miInput" id="nombresito" />
+        </form>
+        <div class="divider">|</div>
+        <a href="todolist.html">Todolist</a>
+      </div>
     </nav>
+    <h1>PokeApi</h1>
     <div class="pokemon"></div>
   </body>
 </html>

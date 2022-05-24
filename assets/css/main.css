@@ -1,5 +1,19 @@
 /* Sizing */
 @import url("https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@font-face {
+  font-family: 'Pokemon Solid';
+  src: url("../../assets/fonts/PokemonSolid.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Pokemon Hollow';
+  src: url("../../assets/fonts/PokemonHollow.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
 * {
   list-style-type: style none;
   margin: 0;
@@ -9,6 +23,78 @@
 
 * {
   font-family: 'Noto Sans', sans-serif;
+}
+
+nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 90%;
+  margin: 4rem auto;
+}
+
+nav .mainMenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav .mainMenu form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5rem;
+  margin-right: 2rem;
+  background-color: yellow;
+}
+
+nav .mainMenu form label {
+  margin-right: 1rem;
+}
+
+nav .mainMenu form input {
+  padding: 0.2rem;
+}
+
+nav .mainMenu .divider {
+  margin-right: 2rem;
+}
+
+nav .mainMenu a {
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: 'Pokemon Hollow';
+  font-size: 3rem;
+  color: #3A5BA7;
 }
 
 * {
@@ -184,6 +270,7 @@ h1 {
   border: solid 1px cadetblue;
   border-bottom: none;
   padding: 3rem 3rem 0 3rem;
+  background-color: yellow;
 }
 
 .todoListForm .inputTareas {
@@ -199,6 +286,7 @@ h1 {
   width: 40%;
   margin: 0 auto;
   border: solid 1px cadetblue;
+  background-color: yellow;
   border-top: none;
   padding: 3rem;
 }

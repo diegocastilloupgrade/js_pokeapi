@@ -1,0 +1,32 @@
+nav {
+  @include flexCenter(row, space-around, center);
+  width: 90%;
+  margin: 4rem auto;
+  .mainMenu {
+    @include flexCenter(row, space-around, center);
+    form {
+      @include flexCenter(row, space-around, center);
+      padding: 0.5rem;
+      margin-right: 2rem;
+      background-color: $bckYellow;
+      label {
+        margin-right: 1rem;
+      }
+      input {
+        padding: 0.2rem;
+      }
+    }
+    .divider {
+      margin-right: 2rem;
+    }
+    a {
+      text-decoration: underline;
+    }
+  }
+}
+
+h1 {
+  font-family: 'Pokemon Hollow';
+  font-size: 3rem;
+  color: #3A5BA7;
+}
